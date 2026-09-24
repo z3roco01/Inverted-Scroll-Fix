@@ -3,7 +3,7 @@
 	"id": "reinverted-scroll",
 	"version": "${version}",
 	"name": "Reinverted Scroll",
-	"description": "Inverts the scroll direction, a fix for a bug in 26.3",
+	"description": "Inverts the scroll direction, a fix for a bug in 26.3. Fixes MC-312085",
 	"authors": [
 		"z3roco01"
 	],
