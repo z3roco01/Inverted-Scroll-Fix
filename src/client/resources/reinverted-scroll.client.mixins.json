@@ -3,6 +3,7 @@
 	"package": "z3roco01.revinverted.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
+		"ScrollWheelHandlerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
