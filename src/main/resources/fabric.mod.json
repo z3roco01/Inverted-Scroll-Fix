@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "reinverted-scroll",
+	"version": "${version}",
+	"name": "Reinverted Scroll",
+	"description": "Inverts the scroll direction, a fix for a bug in 26.3",
+	"authors": [
+		"z3roco01"
+	],
+	"contact": {
+		"sources": "https://github.com/z3roco01/Inverted-Scroll-Fix"
+	},
+	"license": "GPL-v3",
+	"icon": "assets/reinverted-scroll/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"z3roco01.revinverted.client.ReinvertedScrollClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "reinverted-scroll.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": ">=26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
