@@ -8,8 +8,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ScrollWheelHandler.class)
 public abstract class ScrollWheelHandlerMixin {
-    @Inject(method = "getNextScrollWheelSelection", at = @At("RETURN"))
+    @Inject(method = "getNextScrollWheelSelection", at = @At("HEAD"), cancellable = true)
     private static void getNextScrollWheelSelection(double wheel, int currentSelected, int limit, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(cir.getReturnValueI() * -1);
+        int step = (int)Math.signum(wheel);
+        currentSelected += step;
+        currentSelected = Math.max(-1, currentSelected);
+
+        while (currentSelected < 0) {
+            currentSelected += limit;
+        }
+
+        while (currentSelected >= limit) {
+            currentSelected -= limit;
+        }
+
+        cir.setReturnValue(currentSelected);
+        cir.cancel();
     }
 }
